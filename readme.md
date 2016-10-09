@@ -57,7 +57,7 @@ The buttons inside these divs are needed if you want to add a retry function to 
  - numAnswers (int): Number of answers a question can have. Defaulted to 2 (Yes and No)
  - numCorrectAnswers (int): Number of right answers needed to progress
  - correctAnswers (array) :  Right answers per question. antwoord + the number of the answer which you want to pick is the right one
- ````javascript
+````javascript
  	correctAnswers : [
  		{question: 1, answer: 2}
  	]
@@ -70,7 +70,7 @@ The buttons inside these divs are needed if you want to add a retry function to 
 	]
 ````
  - specificAnswers (array): if a specific ruleset of answers apply, set them here. Fill in the questions which have to be answered correctly. Not set by default
- ````javascript
+````javascript
  specificAnswers : [ 
 					"vraag_1",
 					"vraag_2",
