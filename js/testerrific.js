@@ -8,7 +8,7 @@
 			//Number of questions you want to ask
 			NumOfQuestions : 3,
 			//Number of answers a question can have
-			numAnswers: 3,
+			numAnswers: 2,
 			// Number of right answers needed to progress
 			numCorrectAnswers : 2,
 			// Right answers per question. antwoord + the number of the answer which you want to pick is the right one
