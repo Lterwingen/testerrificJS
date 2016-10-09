@@ -79,11 +79,11 @@ The buttons inside these divs are needed if you want to add a retry function to 
 				],
 ````
  - specificSet (boolean) : Check for specific answers to be right = true , false = check the number of answers which were answered right. Compared with numCorrectAnswers
- -posMessage (string): Message that's appended to the positive end result div
- -posTitle (string) : Title of the positive end result
- -negMessage (string): Message that's appended to the negative end result.
- -negTitle (string): Title of the negative end result
- -urlWrong (string): Url that's added to the button on the negative end result
- -correctUrl (array of strings) : Url's that are added to the buttons on positive end result
- -correctLabel (array of string) : Labels of the buttons on the positive end result page
- 
+ - posMessage (string): Message that's appended to the positive end result div
+ - posTitle (string) : Title of the positive end result
+ - negMessage (string): Message that's appended to the negative end result.
+ - negTitle (string): Title of the negative end result
+ - urlWrong (string): Url that's added to the button on the negative end result
+ - correctUrl (array of strings) : Url's that are added to the buttons on positive end result
+ - correctLabel (array of string) : Labels of the buttons on the positive end result page
+
