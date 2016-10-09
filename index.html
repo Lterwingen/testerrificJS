@@ -4,7 +4,7 @@
 <head>
 	<title>Testify test page!</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" /><link href="'https://fonts.googleapis.com/css?family=Droid+Sans'" rel="'stylesheet'" type="'text/css'" /><link rel="stylesheet" type="text/css" href="http://www.jobat.be/extra/mivb-test/css/mivb_test.css" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
-	<script type="text/javascript" src="http://www.jobat.be/EXTRA/mivb-test/js/testerrific.js"></script>
+	<script type="text/javascript" src="../2016-04-Test-MIVB-2/testerrific.js"></script>
 	<script type="text/javascript"><!--
 $(document).ready(function(){
 
@@ -63,11 +63,15 @@ $(document).ready(function(){
 				negtitel : 'Sorry, de job als chauffeur is niet meteen iets voor jou. ', // de titel bovenaan het bericht bij een negatief resultaat
 				negbericht: 'Klik hieronder om te ontdekken welke andere fijne posities de MIVB te bieden heeft!',//het bericht dat wordt getoond bij een negatief resultaat.
 				foutUrl: 'https://jobs.stib-mivb.be/jobs/buschauffeur-mv-n16?locale=nl ', // eventuele link bij negatieve resultaat (wordt dan in een knop gezet)
-                                correctUrl : [ // De urls die bij een positief resultaat in een knop worden gestoken. De labels van deze knoppen vind je in testerrific.js op lijnen 252,253,254
-                                     "http://www.jobat.be/nl/bedrijfsfiche/4377/stibmivb.aspx",
-                                     "http://www.jobat.be/nl/artikels/het-loon-van-een-buschauffeur-bij-mivb-1900-euro-netto/",
-                                    "https://jobs.stib-mivb.be/jobs?category=chauffeurs-en-veiligheid&locale=nl"
-                                ]
+                correctUrl : [ // De urls die bij een positief resultaat in een knop worden gestoken. De labels van deze knoppen vind je in testerrific.js op lijnen 252,253,254
+                	"http://www.jobat.be/nl/bedrijfsfiche/4377/stibmivb.aspx",
+                    "http://www.jobat.be/nl/artikels/het-loon-van-een-buschauffeur-bij-mivb-1900-euro-netto/",
+                    "https://jobs.stib-mivb.be/jobs?category=chauffeurs-en-veiligheid&locale=nl"
+                ],
+                correctLabel : [
+                	"Meer info",
+                	"Second"
+                ]
 			});
 
 			

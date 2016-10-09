@@ -35,6 +35,11 @@
 				"http://www.jobat.be/artikels",
 				"https://jobs.stib-mivb.be/jobs/buschauffeur-mv-n16?locale=nl"
 				],
+			correctLabel : [
+				"Meer info",
+				"Second label",
+				"Third Label"
+			],
 			// redirect for bad quiz
 			foutUrl : "https://www.youtube.com/watch?v=sC75aU47GRk",
 			posbericht : 'Dit is het positieve bericht',
@@ -240,10 +245,10 @@
 						 		resultpos.show();
 						 		adjustable.text(settings.postitel)
 						 		resultpos.prepend("<p>" + settings.posbericht + "</p>");
-						 		resultpos.append("<br /><a target='_blank' data-tealium-quiz='pos-link1' class='mivb-btn quiz_btn' href='" + settings.correctUrl[0] +"'>Meer info over MIVB</a>");
-						 		resultpos.append("<br /><a target='_blank' data-tealium-quiz='pos-link2' class='mivb-btn quiz_btn' href='" + settings.correctUrl[1] +"'>Bekijk het loon van een buschauffeur</a>");
-						 		resultpos.append("<br /><a target='_blank' data-tealium-quiz='pos-link3' class='mivb-btn quiz_btn' href='" + settings.correctUrl[2] +"'>Bekijk alle jobs bij MIVB</a>");
-					 			window.scrollTo(0,0);
+						 		settings.correctUrl.each(function(index){
+						 			resultpos.append("<br /><a target='_blank' data-tealium-quiz='pos-link1' class='mivb-btn quiz_btn' href='" + settings.correctUrl[index] +"'>"+settings.correctLabel+"</a>");
+						 		});
+						 		window.scrollTo(0,0);
 					 		}else{
 							 	nrJuist = 0;
 							 	vraag.hide();
