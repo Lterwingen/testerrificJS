@@ -1,0 +1,97 @@
+<p>Beantwoord volgende zeven vragen zo eerlijk mogelijk en wij vertellen je meteen of de job van chauffeur iets voor jou is ... of niet.</p>
+<html>
+
+<head>
+	<title>Testify test page!</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" /><link href="'https://fonts.googleapis.com/css?family=Droid+Sans'" rel="'stylesheet'" type="'text/css'" /><link rel="stylesheet" type="text/css" href="http://www.jobat.be/extra/mivb-test/css/mivb_test.css" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="http://www.jobat.be/EXTRA/mivb-test/js/testerrific.js"></script>
+	<script type="text/javascript"><!--
+$(document).ready(function(){
+
+
+			$('.nieuwer').testerrific({
+				vragenAantal: 6, // Definieer het aantal vragen dat er worden gebruikt voor deze test. Dit moet overeenkomen met het aantal objecten in de vragen array hieronder.
+				antwoordAantal: 2, // Het aantal antwoorden per vraag. Momenteel is dat standaard 2 (ja of nee)
+				aantalJuisteAntwoorden : 4, // Het aantal antwoorden dat correct moet worden beantwoord om tot een positief resultaat te komen
+				juisteAntwoorden: [ // De array die per vraag het juiste antwoord bevat. Deze array bevat een object (tussen curly braces (zie hiernaast) { } met 2 key:value pairs )
+				//Telkens object op onderstaande manier opmaken en telkens een  komma na de } zetten. De antwoord key wordt gevolgd door het nummer  van het juiste antwoord (1 of 2(ja of nee). Indien van toepassing)
+					{ vraag: 1 , antwoord: 1 },
+					{ vraag: 2 , antwoord: 1 },
+					{ vraag: 3 , antwoord: 1 },
+					{ vraag: 4 , antwoord: 1 },
+					{ vraag: 5 , antwoord: 2 },
+					{ vraag: 6 , antwoord: 1 },
+					{ vraag: 7 , antwoord: 2 },
+				],
+				vragen : [ // de array met de vragen op zich in , bestaat uit 2 key value pairs vraag : 'de vraag', beschrijving : 'de beschrijving / subtext'
+				{
+					vraag : " Kan jij iemand op z'n gemak stellen?",
+					beschrijving : "Je hebt de gave om mensen die zenuwachtig of gehaast zijn op hun gemak te stellen. Je schat wensen en behoeften van klanten goed in en handelt ernaar."
+				},
+				{ 
+					vraag :"Heb jij zin voor verantwoordelijkheid? ", 
+					beschrijving : "Je vermijdt gevaarlijke situaties en risico's, zowel voor jezelf als voor anderen. Je onderkent het belang van het eigen handelen en handelt plichtsbewust. Het welzijn en de veiligheid van de klanten in je bus zijn je eerste bekommernis"
+				},
+				{ 
+					vraag :"Ben jij stipt? " , 
+					beschrijving : "Je volgt afspraken tijdig na, je volgt regels en procedures plichtsgetrouw."
+				},
+				{ 
+					vraag :"Ben je flexibel?", 
+					beschrijving : "Je ziet flexibele werkuren, weekend- en avondwerk als een leuke variatie in de job."
+				},
+				{ 
+					vraag :"Ben je stressbestendig? ", 
+					beschrijving : "Je vertoont efficiënt gedrag in situaties met hoge complexiteit, druk en zenuwachtigheid beheers je makkelijk."
+				},
+				{ 
+					vraag :"Ben je een problem-solver?" , 
+					beschrijving : "Je kan een probleem situeren en snel een gepaste oplossing uitvoeren."
+				}
+				],
+
+				specifiekeAntwoorden : [ // Indien er specifieke regels zijn voor de quiz zet ze hier. Vragen die juist moeten worden beantwoord moet je hierbij zetten. Zoals hieronder aangegeven. De cijfers volgen de volgorde van de array hierboven. Vraag 1 zou dus in dit geval 'Kan jij iemand op z'n gemak stellen? ' zijn. 
+					"vraag_1",
+					"vraag_2",
+					"vraag_3",
+					"vraag_4"
+				],
+				specifiekSet : true, // specifiekSet is een boolean die op true moet worden gezet als de voorgaande regels gezet worden. Anders wordt er gekeken naar de eerder vastgelegde parameters aantalJuistAntwoorden en JuisteAntwoorden.
+				posbericht: "Je hebt de eigenschappen om een goede chauffeur te worden. Je voldoet aan de verwachtingen van klanten door hen met de glimlach te ontvangen hen indien nodig in te lichten over de dienstregeling, de route of de verschillende haltes. Buschauffeur zijn bij de MIVB is niet alleen het dagelijks vervoeren van reizigers. Het is vooral een dienst bewijzen aan 365 miljoen klanten per jaar (of meer dan 1 miljoen klanten per dag) op een netwerk dat voortdurend wordt uitgebreid. Misschien dacht je niet dat je het in je had, maar  hier kan een nieuwe toekomst voor je weggelegd zijn!",
+				// Het bericht dat getoond wordt op een positief resultaat.
+				postitel : 'Proficiat! Je hebt het in jou om als chauffeur bij MIVB aan de slag te gaan!', // Dit titel bovenaan het bericht met positief resultaat
+				negtitel : 'Sorry, de job als chauffeur is niet meteen iets voor jou. ', // de titel bovenaan het bericht bij een negatief resultaat
+				negbericht: 'Klik hieronder om te ontdekken welke andere fijne posities de MIVB te bieden heeft!',//het bericht dat wordt getoond bij een negatief resultaat.
+				foutUrl: 'https://jobs.stib-mivb.be/jobs/buschauffeur-mv-n16?locale=nl ', // eventuele link bij negatieve resultaat (wordt dan in een knop gezet)
+                                correctUrl : [ // De urls die bij een positief resultaat in een knop worden gestoken. De labels van deze knoppen vind je in testerrific.js op lijnen 252,253,254
+                                     "http://www.jobat.be/nl/bedrijfsfiche/4377/stibmivb.aspx",
+                                     "http://www.jobat.be/nl/artikels/het-loon-van-een-buschauffeur-bij-mivb-1900-euro-netto/",
+                                    "https://jobs.stib-mivb.be/jobs?category=chauffeurs-en-veiligheid&locale=nl"
+                                ]
+			});
+
+			
+
+	
+		});
+// --></script>
+</head>
+<body>
+	<div class="mivb-test">
+		<!-- Gelieve niets aan de html structuur te veranderen aangezien de classnames en id's gebruikt worden om de juiste vragen en antwoorden alsook de resultaten in te steken. -->
+
+	<div class="nieuwer"> 
+		<h1 class="adjustable"></h1>
+
+		<div class="resultpos">
+			<button class="quiz_retry retry" data-tealium-quiz="retry-pos"><em class="fa fa-refresh fa-2x"></em></button>
+		</div>
+
+		<div class="resultneg">
+			<button class="quiz_retry retry" data-tealium-quiz="retry-neg"><em class="fa fa-refresh fa-2x"></em></button>
+		</div>
+	</div>
+
+	</div>
+</body>
+</html> 
