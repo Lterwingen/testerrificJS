@@ -6,29 +6,29 @@
 			// these are the defaults
 
 			//Number of questions you want to ask
-			vragenAantal : 3,
+			NumOfQuestions : 3,
 			//Number of answers a question can have
-			antwoordAantal: 2,
+			numAnswers: 2,
 			// Number of right answers needed to progress
-			aantalJuisteAntwoorden : 2,
+			numCorrectAnswers : 2,
 			// Right answers per question. antwoord + the number of the answer which you want to pick is the right one
-			juisteAntwoorden: [
-				{ vraag: 1 , antwoord: 2 },
-				{ vraag: 2 , antwoord: 1 },
-				{ vraag: 3 , antwoord: 1 }
+			correctAnswers: [
+				{ question: 1 , answer: 2 },
+				{ question: 2 , answer: 1 },
+				{ question: 3 , answer: 1 }
 			],
 			// The questions you want to ask + a description below
-			vragen : [
-				{ vraag : 'Wat is uw beroep?', beschrijving : "iets"},
-				{ vraag : 'Zijt ge zeker?' , beschrijving : "iets"},
-				{ vraag : 'En? Content?' , beschrijving : "iets"}
+			questions : [
+				{ question : 'Wat is uw beroep?', description : "iets"},
+				{ question : 'Zijt ge zeker?' , description : "iets"},
+				{ question : 'En? Content?' , description : "iets"}
 			],
 			//if a specific ruleset of answers apply, set them here. Fill in the questions which have to be answered correctly.
-			specifiekeAntwoorden: [
+			specificAnswers: [
 			
 			],
-			// Check for specific answers to be right = true , false = check the number of answers which were answered right. Compared with AantalJuisteAntwoorden
-			specifiekSet : false,
+			// Check for specific answers to be right = true , false = check the number of answers which were answered right. Compared with numCorrectAnswers
+			specificSet : false,
 			//redirect when quiz has been filled in correctly
 			correctUrl : [
 				"http://www.jobat.be",
@@ -41,11 +41,11 @@
 				"Third Label"
 			],
 			// redirect for bad quiz
-			foutUrl : "https://www.youtube.com/watch?v=sC75aU47GRk",
-			posbericht : 'Dit is het positieve bericht',
-			postitel : 'Laat deze job niet aan jou ontsnappen!',
-			negbericht : 'Dit is het negatieve bericht',
-			negtitel : 'Sorry, de job als chauffeur is niet meteen iets voor jou. ',
+			urlWrong : "https://www.youtube.com/watch?v=sC75aU47GRk",
+			posMessage : 'Dit is het positieve bericht',
+			posTitle : 'Laat deze job niet aan jou ontsnappen!',
+			negMessage : 'Dit is het negatieve bericht',
+			negTitle : 'Sorry, de job als chauffeur is niet meteen iets voor jou. ',
 		}, options);
 
 
@@ -60,9 +60,9 @@
 			var nrJuist = 0;
 
 			// Generate the questions in the container
-			for(var i = 0; i < settings.vragenAantal; i++){
+			for(var i = 0; i < settings.NumOfQuestions; i++){
 				var nr = i+1;
-				container.append("<div class='vraag' id='vraag_"+ nr +"'><div class='vraagtekst'><h2>" + settings.vragen[i].vraag +"</h2><p>" + settings.vragen[i].beschrijving + "</p></div><div class='radios'></div></div>");
+				container.append("<div class='vraag' id='vraag_"+ nr +"'><div class='vraagtekst'><h2>" + settings.questions[i].question +"</h2><p>" + settings.questions[i].description + "</p></div><div class='radios'></div></div>");
 				
 			}
 
@@ -78,13 +78,13 @@
 
 
 			// For loop to generate  the correct number of answers per question separately. 
-			for(var j = 0; j < settings.antwoordAantal; j++){
+			for(var j = 0; j < settings.numAnswers; j++){
 					var nr = j+1; // Nr needed to generate the id's
 					var even = "Ja"; // Text for the even buttons
 					var odd = "Nee"; // text for the odd buttons
-					var vraag = $('.vraag'); // get all the questions into a jQuery object
+					var question = $('.vraag'); // get all the questions into a jQuery object
 
-					vraag.each(function(){
+					question.each(function(){
 						var vraagNaam = $(this).attr('id');
 						if(isEven(j) == true){
 							$(this).find('.radios').append("<button class='antwoord' id='antw_"+ nr + "' name='antwoorden_" + vraagNaam + "'>"+ even +"</button>" )
@@ -110,8 +110,8 @@
 				$.each(vraag, function(i){
 					var vraagId = $(this).attr('id'); // get the id of the current questions
 					var answer = $(this).find('.antwoord'), // get the answers for the current question
-						fullRightVr = vrPrefix + settings.juisteAntwoorden[i].vraag, // add the prefix 
-						fullRightAntw = antwPrefix + settings.juisteAntwoorden[i].antwoord; // add prefix
+						fullRightVr = vrPrefix + settings.correctAnswers[i].question, // add the prefix 
+						fullRightAntw = antwPrefix + settings.correctAnswers[i].answer; // add prefix
 
 					// loop function to go through all the answers for that particular question
 					$.each(answer, function(j){
@@ -136,12 +136,12 @@
 			function checkForAnswers(val,array){
 					
 					for(var i = 0; i < antwoordenArray.length; i++){
-						if(val === array[i].vraag){
+						if(val === array[i].question){
 							nrJuist++
 						}
 					}
 
-					if(nrJuist >= settings.aantalJuisteAntwoorden){
+					if(nrJuist >= settings.numCorrectAnswers){
 						return true;
 					}else{
 						return false;
@@ -159,14 +159,10 @@
 				
 			});
 
-			$('h2').click(function(){
-				
-				console.log(JSON.stringify(antwoordenArray));
-			});
+
 			var retryBtn = $('.retry');
 			
-
-			
+		
 			function opnieuw(){
 
 				// this is the reset function
@@ -185,7 +181,7 @@
 
 				retryBtn.on('click',function(e){
 					e.preventDefault();
-					console.log('clicked');
+					
 					result.hide();
 					resultneg.hide();
 					vraag.show();
@@ -205,7 +201,7 @@
 			function validatie(){
 				var selected = $('.selected');
 
-				if(selected.length < settings.vragenAantal){
+				if(selected.length < settings.NumOfQuestions){
 					return false;
 				}else{
 					return true;
@@ -226,27 +222,26 @@
 
 					e.preventDefault();
 
-					if(settings.specifiekSet){
+					if(settings.specificSet){
 						var vraag = $('.vraag');
 						var submitBtn = $('.submit');
 						var error = $('.error');
-						for(var i = 0; i < settings.specifiekeAntwoorden.length; i++){
-							checkForAnswers(settings.specifiekeAntwoorden[i],antwoordenArray);
+						for(var i = 0; i < settings.specificAnswers.length; i++){
+							checkForAnswers(settings.specificAnswers[i],antwoordenArray);
 						}
 
 						var validated = validatie();
-						console.log(validatie());
 
 						if(validated == true){
-							if(nrJuist >= settings.specifiekeAntwoorden.length){
+							if(nrJuist >= settings.specificAnswers.length){
 						 		vraag.hide();
 						 		submitBtn.hide();
 						 		error.remove();
 						 		resultpos.show();
-						 		adjustable.text(settings.postitel)
-						 		resultpos.prepend("<p>" + settings.posbericht + "</p>");
-						 		settings.correctUrl.each(function(index){
-						 			resultpos.append("<br /><a target='_blank' data-tealium-quiz='pos-link1' class='mivb-btn quiz_btn' href='" + settings.correctUrl[index] +"'>"+settings.correctLabel+"</a>");
+						 		adjustable.text(settings.posTitle)
+						 		resultpos.prepend("<p>" + settings.posMessage + "</p>");
+						 		$.each(settings.correctUrl, function(index){
+						 			resultpos.append("<br /><a target='_blank' data-tealium-quiz='pos-link1' class='mivb-btn quiz_btn' href='" + settings.correctUrl[index] +"'>"+settings.correctLabel[index]+"</a>");
 						 		});
 						 		window.scrollTo(0,0);
 					 		}else{
@@ -255,9 +250,9 @@
 							 	submitBtn.hide();
 							 	error.remove();
 							 	resultneg.show();
-							 	adjustable.text(settings.negtitel);
-							 	resultneg.prepend("<p>" + settings.negbericht + "</p>");
-							 	resultneg.append("<br /><a target='_blank' data-tealium-quiz='neg-link1' class='mivb-btn quiz_btn' href='" + settings.foutUrl +"'>Bekijk alle jobs van MIVB</a>");
+							 	adjustable.text(settings.negTitle);
+							 	resultneg.prepend("<p>" + settings.negMessage + "</p>");
+							 	resultneg.append("<br /><a target='_blank' data-tealium-quiz='neg-link1' class='mivb-btn quiz_btn' href='" + settings.urlWrong +"'>Bekijk alle jobs van MIVB</a>");
 							 	window.scrollTo(0,0);
 						 	}
 						}else{
@@ -266,14 +261,14 @@
 						}
 
 						
-					}else if(!settings.specifiekSet){
-						console.log(settings.aantalJuisteAntwoorden);
-						if(antwoordenArray.length >= settings.aantalJuisteAntwoorden){
-							console.log('You are correct!');
+					}else if(!settings.specificSet){
+						
+						if(antwoordenArray.length >= settings.numCorrectAnswers){
+							
 							window.location = settings.correctUrl;
 						}else{
-							console.log('Maybe something else is better for you');
-							window.location = settings.foutUrl ;
+							
+							window.location = settings.urlWrong ;
 						}
 					}
 	
@@ -307,12 +302,12 @@
 				function findAntwoordId(val,array){
 					for(var i = 0; i < antwoordenArray.length; i++){
 						if(val === array[i].vraag){
-							console.log('found');
+							
 							found = true;
 							return;
 						}else{
 							found = false;
-							console.log('not found');
+							
 						}
 					}
 				}
@@ -320,21 +315,21 @@
 
 
 				if($(this).data('correct') === 'ja'){
-					var value = { "vraag" : vraagId , "antwoord" : antwoordId};
+					var value = { "question" : vraagId , "answer" : antwoordId};
 
 					if(buttons.hasClass('selected')){
 						buttons.removeClass('selected');
 						$(this).addClass('selected');
 					}
-					console.log('buttons? : ' + JSON.stringify(buttons));
+					
 					if(antwoordenArray.length < 1){
-						antwoordenArray.push({ "vraag" : vraagId , "antwoord" : antwoordId});
+						antwoordenArray.push({ "question" : vraagId , "answer" : antwoordId});
 					}else{
 						
 						findAntwoordId(vraagId,antwoordenArray);
-						console.log('found value= ' + found);
+						
 						if(!found){
-							antwoordenArray.push({ "vraag" : vraagId , "antwoord" : antwoordId});
+							antwoordenArray.push({ "question" : vraagId , "answer" : antwoordId});
 						}else{
 							return;
 						}
