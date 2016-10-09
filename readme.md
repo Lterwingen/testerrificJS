@@ -3,7 +3,7 @@
 This is a small and easy to use jQuery plugin for making quick and simple multiple choice quiz. Customizable number of questions, questions themselves (duh), answers and number of answers.
 
 More information on the options can be found here.
- - #options
+- [Options](https://github.com/Lterwingen/testerrificJS#options)
 
 ## Introduction
 
